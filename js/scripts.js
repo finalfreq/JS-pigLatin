@@ -18,8 +18,12 @@ var pigLatin = function(text) {
     for (var i = 0; i < letters.length; i++) {
       if ((letters[i] === "q") && (letters[1] === "u")) {
           output.push(letters[0], letters[1])
-      } else if    ((isVowel(letters[i]) === false) || (letters[i] === "y")) {
+      } else if ((letters[0]  === "y") && (i === 0)){
           output.push(letters[i].slice())
+          debugger;
+      } else if (isVowel(letters[i]) === false) {
+          output.push(letters[i].slice())
+
       } else
         break;
 
