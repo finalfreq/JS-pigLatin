@@ -27,6 +27,8 @@ describe("pigLatin",function() {
     expect(pigLatin("year")).to.equal("earyay");
   });
 
-
+  it("will combine q and u and put them at the end ", function(){
+    expect(pigLatin("quiet")).to.equal("ietquay")
+  });
 
 });

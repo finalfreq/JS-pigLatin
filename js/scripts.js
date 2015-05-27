@@ -12,11 +12,13 @@ var isVowel = function(text) {
 var pigLatin = function(text) {
   var output = []
   var letters = text.split('')
-  if (isVowel(text[0])) {
+  if ((isVowel(text[0])) && (text[0] != "y")) {
     return text + "ay"
   } else
     for (var i = 0; i < letters.length; i++) {
-      if ((letters[0] === "y") || (isVowel(letters[i]) === false)) {
+      if ((letters[i] === "q") && (letters[1] === "u")) {
+          output.push(letters[0], letters[1])
+      } else if    ((isVowel(letters[i]) === false) || (letters[i] === "y")) {
           output.push(letters[i].slice())
       } else
         break;
