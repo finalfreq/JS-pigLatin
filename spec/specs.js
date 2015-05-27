@@ -23,6 +23,10 @@ describe("pigLatin",function() {
     expect(pigLatinPhrase("hello laura")).to.equal("ellohay auralay");
   });
 
+  it("will treat y as a consonant if its the first letter.", function() {
+    expect(pigLatin("year")).to.equal("earyay");
+  });
+
 
 
 });

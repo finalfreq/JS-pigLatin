@@ -1,5 +1,5 @@
 var isVowel = function(text) {
-  var vowels = ["a", "e", "i", "o", "u"]
+  var vowels = ["a", "e", "i", "o", "u", "y"]
 
   if (vowels.indexOf(text) != -1) {
     return true;
@@ -16,10 +16,10 @@ var pigLatin = function(text) {
     return text + "ay"
   } else
     for (var i = 0; i < letters.length; i++) {
-      if (isVowel(letters[i])) {
-        break;
-      } else
+      if ((letters[0] === "y") || (isVowel(letters[i]) === false)) {
           output.push(letters[i].slice())
+      } else
+        break;
 
       }
       return text.slice(output.length, text.length) + text.slice(0, output.length) + "ay"
