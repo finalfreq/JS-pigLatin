@@ -1,13 +1,6 @@
 var isVowel = function(text) {
-  var vowels = ["a", "e", "i", "o", "u", "y"]
-
-  if (vowels.indexOf(text) != -1) {
-    return true;
-  } else
-    return false;
+  return "aeiou".indexOf(text) >= 0
 };
-
-
 
 var pigLatin = function(text) {
   var output = []
@@ -18,19 +11,13 @@ var pigLatin = function(text) {
     for (var i = 0; i < letters.length; i++) {
       if ((letters[i] === "q") && (letters[1] === "u")) {
           output.push(letters[0], letters[1])
-      } else if ((letters[0]  === "y") && (i === 0)){
+      } else if ((isVowel(letters[i]) === false) || ((letters[0]  === "y") && (i === 0))) {
           output.push(letters[i].slice())
-          debugger;
-      } else if (isVowel(letters[i]) === false) {
-          output.push(letters[i].slice())
-
       } else
         break;
-
       }
       return text.slice(output.length, text.length) + text.slice(0, output.length) + "ay"
 };
-
 
 var pigLatinPhrase = function(phrase) {
 
@@ -39,6 +26,5 @@ var pigLatinPhrase = function(phrase) {
   for (var i = 0; i < words.length; i++) {
     pigLatinPhrase.push(pigLatin(words[i]))
   }
-
   return pigLatinPhrase.join(" ")
 };
